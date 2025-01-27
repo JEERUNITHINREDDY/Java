@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Hospital Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+       
+        .slide-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .slide-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        .content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .mottos, .services, .appointment-section, .urgent-call {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Animation for each section */
+        .mottos.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .services.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .appointment-section.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .urgent-call.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Initial state of animations */
+        .mottos {
+            transform: translateY(100px);
+        }
+
+        .services {
+            transform: translateX(-100px);
+        }
+
+        .appointment-section {
+            transform: translateX(100px);
+        }
+
+        .urgent-call {
+            transform: translateY(100px);
+        }
+
+        .mottos {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .services {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        .mottos h2, .services h2 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+        .mottos ul, .services ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .mottos li, .services li {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .mottos li:hover, .services li:hover {
+            background-color: #e0e0e0;
+        }
+        .appointment-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .appointment-form {
+            background-color: white;
+            padding: 2rem;
+            flex: 1;
+            margin-right: 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .appointment-form h2 {
+            margin-bottom: 1rem;
+        }
+        .appointment-form label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+        }
+        .appointment-form input, .appointment-form select, .appointment-form button {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        .appointment-info {
+            background-color: white;
+            padding: 2rem;
+            flex: 1;
+            margin-left: 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .appointment-info h2 {
+            color: #4CAF50;
+        }
+        .urgent-call {
+            background-color: #ff6f61;
+            color: white;
+            padding: 1rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let currentSlide = 0;
+        function showSlides() {
+            const slides = document.querySelectorAll(".slides");
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === currentSlide) ? "block" : "none";
+            });
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            showSlides();
+            setInterval(showSlides, 3000);
+        });
+    </script>
+
+    <div class="slide-container">
+        <img class="slides slide-img" src="hospital1.jpg" alt="Hospital Image 1">
+        <img class="slides slide-img" src="hospital2.jpg" alt="Hospital Image 2">
+        <img class="slides slide-img" src="hospital3.jpg" alt="Hospital Image 3">
+    </div>
+
+    <div class="content">
+        <h2>Providing Comprehensive Healthcare Solutions Across Multiple Hospitals</h2>
+        <p>A multi-hospital services website brings forth a myriad of advantages that contribute to the enhancement of healthcare delivery, patient experiences, and operational efficiency. By centralizing information, providing comprehensive service details, and facilitating seamless appointment scheduling, these platforms streamline the healthcare journey for patients. Integration of telemedicine, health education resources, and patient feedback mechanisms further enrich the user experience and promote informed decision-making.</p>
+    </div>
+
+    <div class="mottos">
+        <h2>Our Mottos</h2>
+        <ul>
+            <li>Transforming Healthcare, One Hospital at a Time</li>
+            <li>Empowering Hospitals, Enriching Lives</li>
+            <li>Streamlining Care, Saving Lives</li>
+            <li>Connecting Care, Everywhere</li>
+            <li>Unity in Healthcare, Excellence in Care</li>
+        </ul>
+    </div>
+
+    <div class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Organ Availability Tracker: A real-time platform that displays available organs for transplantation, ensuring timely and efficient matching.</li>
+            <li>Nearest Hospital Locator: A GPS-enabled service that directs patients to the nearest hospital with available services, reducing response time and improving outcomes.</li>
+            <li>Multi-Hospital Management System: A comprehensive platform that integrates and manages multiple hospitals, streamlining operations, and improving patient care.</li>
+            <li>Electronic Health Records (EHR): A secure and accessible system that stores patient data, enabling seamless communication and informed decision-making.</li>
+            <li>Audit and Compliance Management: A robust system that ensures adherence to regulatory policies, reducing errors, and improving accountability.</li>
+            <li>Patient Engagement Platform: A user-friendly interface that empowers patients to manage their health, access medical records, and communicate with healthcare providers.</li>
+            <li>Data Analytics and Insights: A powerful tool that provides actionable insights, enabling data-driven decisions, and improving hospital operations.</li>
+            <li>Telemedicine Services: A virtual platform that connects patients with healthcare professionals, expanding access to care, and improving health outcomes.</li>
+        </ul>
+    </div>
+
+    <div class="appointment-section">
+        <div class="appointment-form">
+            <h2>Book an Appointment</h2>
+            <form>
+                <input type="text" id="name" name="name" placeholder="Name*">
+                <input type="text" id="mobile" name="mobile" placeholder="Mobile Number*" required>
+                <input type="email" id="email" name="email" placeholder="Email ID*" required>
+                <input type="date" id="date" name="date" placeholder="Date*" required>
+                <select id="department" name="department" required>
+                    <option value="general">General Medicine</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="orthopedics">Orthopedics</option>
+                    <option value="pediatrics">Pediatrics</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="appointment-info">
+            <h2>Book Appointment</h2>
+            <p>24/7 Available</p>
+        </div>
+    </div>
+    
+    <div class="urgent-call">
+        <h2>For Urgent Assistance, Call Us at: XXXXXXXXXX</h2>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    } else {
+                        entry.target.classList.remove('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const elements = document.querySelectorAll('.mottos, .services, .appointment-section, .urgent-call');
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
